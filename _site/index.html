@@ -35,8 +35,8 @@
                         <li><a href="#meme" class="folder">memes and tweets</a></li>
                         <li><a href="#useful" class="folder">useful resources</a></li>
                         <li><a href="#game" class="folder">nostalgic games</a></li>
-                        <li><a href="#poli-ed" class="folder">political education</a></li>
-                        <li><a href="#etc" class="folder">etc etc etc</a></li>
+                        <li><a href="#poli-ed" class="folder">political</a></li>
+                        <!-- <li><a href="#etc" class="folder">etc etc etc</a></li> -->
                     </ul>
                 </div>
 
@@ -249,17 +249,34 @@ player.load({
                                 <div class="scrap-item" id="sues-ramen" data-tags="game">
                                     <div class="scrap-date">[Tue Jun 09 2026 09:00:00 GMT+0900 (Korean Standard Time)]</div>
                                     <h3 class="scrap-title">슈의 라면집 (sue&#39;s ramen)</h3>
-                                    <div class="scrap-content"><script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+                                    <div class="scrap-content"><!-- <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 <script>
 window.RufflePlayer = window.RufflePlayer || {};
 window.RufflePlayer.config = {
   autoplay: "off"
 };
 </script>
+
 <object>
-  <embed src="/scrapbook/games/sue-ramen.swf">
-  </embed>
-</object></div>
+  <iframe src="https://archive.org/embed/sues_cooking_game" width="600px" height="450" frameborder="0" allowfullscreen>
+  </iframe>
+</object> -->
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<div id="game-box-ramen" style="width:100%; max-width:600px; height:450px;"></div>
+<script>
+window.RufflePlayer = window.RufflePlayer || {};
+window.addEventListener("load", () => {
+  const ruffle = window.RufflePlayer.newest();
+  const container = document.getElementById("game-box-ramen");
+  const player = ruffle.createPlayer();
+  player.style.width = "100%";
+  player.style.height = "100%";
+  container.appendChild(player);
+  player.load({
+    url: "/scrapbook/games/sue-ramen.swf"
+  });
+});
+</script></div>
                                     <div class="scrap-tags">tags: game </div>
                                 </div>
                                 
