@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ✧ jiwon's homepy ✧ </title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="page-frame">
+        <div class="content-grid">
+            <!-- Left Sidebar-->
+            <div class="left-sidebar">
+
+                <!-- Mini-Me -->
+                <div class="profile">
+                    <div class="visitor-counter">
+                        today: <span id="today-count">0</span> | total: <span id="total-count">0</span>
+                    </div>
+                    <img src="/assets/minime/pic2.jpg" alt="mini-me" class="mini-me-img">
+                    <div class="today-status">
+                        <p>today is... ♥︎</p>
+                    </div>
+                    <div class="bio-text">
+                        <p>hi i'm jiwon, welcome to my homepy ^-^</p>
+                     </div>
+                </div>
+
+                <div class="scrapbook-folders">
+                    <ul class="folder-list">
+                        <li><a href="#all" class="folder active">all</a></li>
+                        <li><a href="#website" class="folder">cool websites</a></li>
+                        <li><a href="#meme" class="folder">memes and tweets</a></li>
+                        <li><a href="#useful" class="folder">useful resources</a></li>
+                        <li><a href="#game" class="folder">nostalgic games</a></li>
+                        <li><a href="#poli-ed" class="folder">political education</a></li>
+                        <li><a href="#etc" class="folder">etc etc etc</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Radio/BGM Widget -->
+               <div class="radio-widget">
+                    <label>(♥) <a href="https://radioalhara.net/">Radio Alhara</a></label>
+                    <div class="radio-controls">
+                        <button id="play-radio" class="radio-btn">▶</button>
+                        <button id="pause-radio" class="radio-btn">■</button>
+                    </div>
+
+                    <audio id="bgm-audio" loop autoplay>
+                        <source src="https://stream-relay-geo.ntslive.net/stream" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+
+            <!-- Center Main Content -->
+            <div class="center-main-container">
+
+                <!-- HOMEPY -->
+                <div id="home" class="tab-content active">
+                    <main class="center-main">
+                        <div class="top-row">
+                            <div class="section">
+                                <div class="section-label">Recent</div>
+                                <ul class = "recent-posts">
+                                
+                                
+                                    
+                                    <a href="#" class="recent-link" data-post-anchor="solidarity-from-cuba-to-korea" style="margin-bottom: 5px">
+                                        • [poli-ed] solidarity from cuba to korea
+                                    </a>
+                                    
+                                
+                                    
+                                    <a href="#" class="recent-link" data-post-anchor="ongs-sisters-snack-factory" style="margin-bottom: 5px">
+                                        • [game] 옹스 시스터즈 과자 만들기 (Ongs Sisters Snack Factory)
+                                    </a>
+                                    
+                                
+                                    
+                                    <a href="#" class="recent-link" data-post-anchor="cyworld-asset-archive" style="margin-bottom: 5px">
+                                        • [website] cyworld asset archive
+                                    </a>
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                </ul>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-label" style="border: none; color: transparent;">filler</div>
+                                <table class="social-cards">
+                                    <tr> <!-- Row 1 -->
+                                        <td><a href="https://x.com/G1G0LD">twitter</a></td>
+                                        <td><a href="https://instagram.com/jwokime">instagram</a></td>
+                                    </tr>
+                                    <tr> <!-- Row 2 -->
+                                        <td><a href="https://jwokim.substack.com/">substack</a></td>
+                                        <td><a href="">email</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                        </div>
+
+                        <!-- Mini-Home -->
+                        <div class="section">
+                            <div class="section-label">Mini-home</div>
+                        
+                            <div class="mini-home">
+                                <img src="/assets/minihome/subway.gif" alt="mini-home" class="room-bg">
+                                
+                                <!-- DRAGGABLE ELEMENTS -->
+                                <div class="draggable-element" id="element1">
+                                    <img src="/assets/minihome/elements/cryingpukka.gif" alt="mini-me" class="pixel-img">
+                                </div>
+
+                                <div class="draggable-element" id="element2">
+                                    <img src="/assets/minihome/elements/watermelon.gif" alt="pool float" class="pixel-img">
+                                </div>
+
+                                <div class="draggable-element" id="element3">
+                                    <img src="/assets/minihome/elements/grapeboy.gif" alt="pixel cat" class="pixel-img">
+                                </div>
+
+                                <div class="draggable-element" id="element4">
+                                    <img src="/assets/minihome/elements/devilgirl.gif" alt="pixel cat" class="pixel-img">
+                                </div>       
+
+                            </div>
+                        </div>
+                    </main> 
+                </div>
+
+                <div id="scrapbook" class="tab-content">
+                    <main class="center-main">
+                            <div class="scrapbook-container" id="scrapbook-posts">
+                                
+                                <div class="scrap-item" id="solidarity-from-cuba-to-korea" data-tags="poli-ed">
+                                    <div class="scrap-date">[Wed Jun 10 2026 09:00:00 GMT+0900 (Korean Standard Time)]</div>
+                                    <h3 class="scrap-title">solidarity from cuba to korea</h3>
+                                    <div class="scrap-content"><p>Love Cuban propaganda posters; this one hits close to home.</p>
+<img src="../scrapbook/img/blanco1980.webp" alt="cubaposter" style="max-width: 400px; padding-bottom: 15px;">
+<p>Alberto Blanco, We Denounce the Artificial Division of Korea, 1980.</p>
+<p>-&gt; <a href="https://brooklynrail.org/2022/02/artseen/Art-of-the-Cuban-Revolution/">More art from the Cuban Revolution</a></p>
+</div>
+                                    <div class="scrap-tags">tags: poli-ed </div>
+                                </div>
+                                
+                                <div class="scrap-item" id="ongs-sisters-snack-factory" data-tags="game">
+                                    <div class="scrap-date">[Wed Jun 10 2026 09:00:00 GMT+0900 (Korean Standard Time)]</div>
+                                    <h3 class="scrap-title">옹스 시스터즈 과자 만들기 (Ongs Sisters Snack Factory)</h3>
+                                    <div class="scrap-content"><!-- <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script>
+window.RufflePlayer = window.RufflePlayer || {};
+window.RufflePlayer.config = {
+  autoplay: "off"
+};
+</script>
+
+<object>
+  <embed src="/scrapbook/games/ongs-factory.swf">
+  </embed>
+</object> -->
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<div id="game-box" style="width:100%; max-width:600px; height:450px;"></div>
+<script>
+window.RufflePlayer = window.RufflePlayer || {};
+window.RufflePlayer.config = { autoplay: "off" };
+
+const container = document.querySelector("#game-box");
+const ruffle = RufflePlayer.newest();
+const player = ruffle.createPlayer();
+container.appendChild(player);
+
+// Critical: Set base path to your site root to rewrite all hardcoded URLs
+player.load({
+  url: "/scrapbook/games/ongs-factory.swf",
+  base: "/", // Forces all SWF internal calls to use YOUR domain
+  allowScriptAccess: "always"
+});
+</script></div>
+                                    <div class="scrap-tags">tags: game </div>
+                                </div>
+                                
+                                <div class="scrap-item" id="cyworld-asset-archive" data-tags="website useful">
+                                    <div class="scrap-date">[Tue Jun 09 2026 09:00:00 GMT+0900 (Korean Standard Time)]</div>
+                                    <h3 class="scrap-title">cyworld asset archive</h3>
+                                    <div class="scrap-content"><p><img src="../assets/dividers/pinkscribbles.gif" alt="divider"></p>
+<p>thank you to all the avid tumblr collectors for keeping alive the long lost early digital world. i got most of the cyworld assets from these lovely blogs.</p>
+<p>-&gt; <a href="https://www.tumblr.com/pepperspoppies/">pepperspoppies</a>
+-&gt; <a href="https://www.tumblr.com/pinkcore-png">pinkcore</a>
+-&gt; <a href="https://www.tumblr.com/animatedglittergraphics-n-more">animatedglittergraphics</a>
+-&gt; <a href="https://www.tumblr.com/lostsozai">lostsozai</a></p>
+</div>
+                                    <div class="scrap-tags">tags: website, useful </div>
+                                </div>
+                                
+                                <div class="scrap-item" id="old-games" data-tags="resource game">
+                                    <div class="scrap-date">[Tue Jun 09 2026 09:00:00 GMT+0900 (Korean Standard Time)]</div>
+                                    <h3 class="scrap-title">old games</h3>
+                                    <div class="scrap-content"><p>a way to play old flash games that we used to love.. u know what, fuck it i'm bringing them to the site</p>
+<p>-&gt; <a href="https://vidkidz.tistory.com/">vidkidz</a>
+-&gt; <a href="https://footballog.net/bbs/board.php?bo_table=memory_Hotflash">개꿀잼게임</a></p>
+<p><img src="../assets/dividers/dancingpets.gif" alt="divider"></p>
+</div>
+                                    <div class="scrap-tags">tags: resource, game </div>
+                                </div>
+                                
+                                <div class="scrap-item" id="typography-principles-website" data-tags="website">
+                                    <div class="scrap-date">[Tue Jun 09 2026 09:00:00 GMT+0900 (Korean Standard Time)]</div>
+                                    <h3 class="scrap-title">typography principles website</h3>
+                                    <div class="scrap-content"><p>typography principles and the craziest scroll-based website</p>
+<img src="/scrapbook/img/typographyprinciples_screenshot.png" alt="typography principles" style="width: 100%; height: auto;">
+<p>-&gt; <a href="https://typographyprinciples.obys.agency/">site</a></p>
+</div>
+                                    <div class="scrap-tags">tags: website </div>
+                                </div>
+                                
+                                <div class="scrap-item" id="revolution" data-tags="poli-ed meme">
+                                    <div class="scrap-date">[Tue Jun 09 2026 09:00:00 GMT+0900 (Korean Standard Time)]</div>
+                                    <h3 class="scrap-title">revolution</h3>
+                                    <div class="scrap-content"><img src="../scrapbook/img/sailormarx.jpg" alt="sailormoon" style="max-width: 300px; padding-bottom: 10px">
+<p>poor? depressed? angry at the injustices in the world? lost in your career? don't know what to do with your life? hungry for change?</p>
+<p>.
+.
+.</p>
+<img src="../assets/dividers/rapidblinkingheart.gif" alt="divider" style="width: 300px; padding-bottom: 15px">
+<p>-&gt; -&gt; -&gt; <a href="https://www.marxists.org/archive/index.htm">!!!get woke now!!!</a> &lt;- &lt;- &lt;-</p>
+<img src="../assets/dividers/rapidblinkingheart.gif" alt="divider" style="width: 300px">
+<p>.
+.
+.</p>
+<img src="../scrapbook/img/pookiemarx.jpg" alt="pookiemarx" style="width: 300px">
+<img src="../scrapbook/img/pookielenin.jpg" alt="pookiemarx" style="width: 300px">
+<img src="../scrapbook/img/pookiestalin.jpg" alt="pookiemarx" style="width: 300px"></div>
+                                    <div class="scrap-tags">tags: poli-ed, meme </div>
+                                </div>
+                                
+                                <div class="scrap-item" id="sues-ramen" data-tags="game">
+                                    <div class="scrap-date">[Tue Jun 09 2026 09:00:00 GMT+0900 (Korean Standard Time)]</div>
+                                    <h3 class="scrap-title">슈의 라면집 (sue&#39;s ramen)</h3>
+                                    <div class="scrap-content"><script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script>
+window.RufflePlayer = window.RufflePlayer || {};
+window.RufflePlayer.config = {
+  autoplay: "off"
+};
+</script>
+<object>
+  <embed src="/scrapbook/games/sue-ramen.swf">
+  </embed>
+</object></div>
+                                    <div class="scrap-tags">tags: game </div>
+                                </div>
+                                
+                            </div>
+                    </main>
+                </div>
+
+                <div id="guestbook" class="tab-content">
+                    <main class="center-main">
+                        <div id="guestbook-messages" style="flex: 1; overflow-y: auto; padding: 12px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.5; height: 400px;">
+                            Loading messages...
+                        </div>
+
+                        <!-- FIXED BOTTOM Message input -->
+                        <form action="https://docs.google.com/forms/d/e/1FAIpQLSdrggMa2uvvEtRNCwkEIbDyNlDzSbszLuTtFEk7aOpRUoPm7g/formResponse?usp=header" 
+                            id="gb-form"
+                            method="POST" 
+                            target="hiddenFrame"
+                            style="display: flex; gap: 8px; padding: 12px; border-top: 1px solid #000; align-items: center;">
+                            
+                            <select 
+                                id="emoji-select" 
+                                style="padding: 6px; width:50px; font-family: 'JetBrains Mono', monospace; border: 1px solid #000; background: #fff;">
+                                <option value="*">*</option>
+                                <option value="♥">♥</option>
+                                <option value="✧.*">✧</option>
+                                <option value="୨୧">୨୧</option>
+                                <option value="ੈ✩">ੈ✩</option>
+                                <option value="・❥">・❥</option>
+                                <option value="☽">☽</option>
+                                <option value="⊰❣⊱">⊰❣⊱</option>
+                                <option value="☂">☂</option>
+                            </select>
+                            <input type="hidden" id="emoji-input" name="entry.2138292342">
+
+
+                            <input
+                                type="text"
+                                name="entry.1862542009"  
+                                placeholder="name"
+                                required
+                                style="flex: 1; padding: 6px; border: 1px solid #000; background: #fff; font-family: 'JetBrains Mono';">
+
+                            <input
+                                id="message-input"
+                                type="text"
+                                name="entry.1819506925"
+                                placeholder="message"
+                                required
+                                style="flex: 3; padding: 6px; border: 1px solid #000; background: #fff; font-family: 'JetBrains Mono';">
+
+                            <button type="submit"
+                                style="padding: 6px 14px; border: 1px solid #000; background: #e5e5e5; font-family: 'JetBrains Mono'; cursor: pointer;">
+                                send
+                            </button>
+                        </form>
+                        <iframe name="hiddenFrame" style="display:none;"></iframe>
+
+                    </main>
+                </div>
+
+                <nav class="nav-container">
+                    <ul>
+                        <li><a href="#home" class="tab active">home</a></li>
+                        <li><a href="#scrapbook" class="tab">scrapbook</a></li>
+                        <li><a href="#guestbook" class="tab">guestbook</a></li>
+                    </ul>
+                </nav>
+            </div>       
+        </div>
+    </div>
+</body>
+<script src="/script.js"></script>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</html>

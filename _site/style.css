@@ -1,0 +1,489 @@
+/* Reset default styles */
+:root {
+  --border-color: #000000;
+  --cursor: url('/assets/cursor/sparklystar.gif')
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Core aesthetic (monochrome + fixed-width font) */
+body {
+    min-height: 100vh;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 20px;
+    background-image: url('/assets/background/citynight.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Disable tiling */
+    background-attachment: fixed;
+    cursor: var(--cursor), auto;
+    
+}
+
+a, button, .clickable-element, .draggable-element {
+  cursor: var(--cursor), pointer;
+}
+
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-color: #000;
+}
+
+a:visited {
+    color: #000;
+}
+
+/* Outer page frame (ASCII-style border) */
+.page-frame {
+    display: grid;
+    max-width: 1400px;
+    padding: 20px;
+    position: relative;
+    width: fit-content;
+}
+
+/* Visitor counter (top-left) */
+.visitor-counter {
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    color:#000;
+}
+
+/* --- 3-Column Grid Layout --- */
+.content-grid {
+    display: grid;
+    /* Left (280px) | Center (flex) | Right (180px) */
+    grid-template-columns: 280px 1fr;
+    gap: 15px;
+    /* padding-right: 10px; */
+}
+
+/* --- Left Sidebar --- */
+.left-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #000; /* Solid border */
+    padding: 15px;
+    background-color: #fff;
+    position: relative;
+    min-height: 600px;
+    align-items: center;
+    /* width: 280px;  */
+    box-sizing: border-box;
+}
+
+/* HIDE FOLDERS BY DEFAULT */
+.profile { display: block; }
+.scrapbook-folders { display: none; }
+
+.scrapbook-folders {
+    width: 100%
+}
+
+.scrapbook-folders ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 15px;
+    align-items: start;
+    justify-content: flex-start;
+}
+
+
+.folder::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-image: url("/assets/icons/closedfolder.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+.folder.active {
+  font-weight: bold;
+}
+.folder.active::before {
+  background-image: url("/assets/icons/openfolder.png");
+}
+
+
+/* Mini-Me profile */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    box-sizing: border-box;
+    padding-block: 15px;
+}
+
+/* Profile Pic */
+.mini-me-img {
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+    padding-top: 10px;
+}
+
+/* Today Status Bar */
+.today-status {
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    padding-block: 5px; 
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Bio */
+.bio-text {
+    height: auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+/* Radio/BGM Widget - Fixed at Bottom + Aligned with Centered Content */
+.radio-widget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 90%; /* Match bio-text width (consistent centering) */
+    border: 1px solid;
+    position: absolute;
+    bottom: 20px;
+    box-sizing: border-box; /* Prevent padding from breaking width */
+}
+
+.radio-btn {
+    background: none;
+    border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.radio-btn:hover {
+    color: #666;
+}
+
+
+/* --- 2. Center Main Content (SOLID BORDERS) --- */
+.center-main {
+    border: 1px solid #000; /* Solid border */
+    padding: 20px;
+    padding-right:40px;
+    padding-left: 40px;
+    background-color: #fff; /* White background (matches active tabs) */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 650px;
+    width: 900px;
+}
+
+.center-main-container {
+    display: grid;
+    position: relative;    
+}
+
+/* Recent Posts */
+.recent-posts {
+    display: grid;
+    grid-template-rows: max-content max-content;
+    flex: 2;
+    padding: 10px;
+}
+
+.section-label {
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+}
+
+.recent-posts {
+    list-style: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.recent-link:hover {
+    text-decoration: none;
+    font-style: italic;
+}
+
+/* Social Cards (Twitter + Instagram) */
+.social-cards {
+    width: 250px; /* Keep your fixed width */
+    height: 100px;
+    border-collapse: collapse; /* Critical: Merges cell borders into clean lines */
+    border: 1px solid #000; 
+}
+
+/* Table cells (td) with lines */
+.social-cards td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center; 
+}
+
+/* Clean link styles (match your retro aesthetic) */
+.social-cards a {
+  color: #000;
+  text-decoration: none;
+}
+
+.social-cards a:hover {
+  text-decoration: underline; /* Subtle hover effect */
+}
+
+.top-row {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap:25px;
+}
+
+.section {
+    display: grid;
+    grid-template-rows: max-content max-content;
+    flex: 2;
+    /* padding: 10px; */
+}
+
+
+/* Mini-Home Widget */
+.mini-home {
+    width: 100%;
+    height: auto;
+    padding-block: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.room-bg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Draggable container (wraps ALL images) */
+.draggable-element {
+    position: absolute;
+    z-index: 2;
+    cursor: grab;
+    transition: transform 0.1s ease;
+    /* Lock container size so images don't shift */
+    width: auto;
+    height: auto;
+}
+
+.draggable-element:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(2px 2px 0 #000);
+}
+
+.draggable-element:active {
+    cursor: grabbing;
+}
+
+/* Universal image rule for JPG / PNG / GIF */
+.pixel-img {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Initial default positions (adjust top/left for each element) */
+#element1 {
+    top: 220px;
+    left: 650px;
+}
+#element2 {
+    top: 350px;
+    left: 100px;
+}
+#element3 { 
+    top: 220px;
+    left: 480px;
+}
+#element4 { 
+    top: 130px;
+    left: 300px;
+}
+
+
+
+/* --- Right Nav Sidebar --- */
+.nav-container {
+    border: none;
+    padding: 0;
+    width: 96px;
+    align-items: flex-start;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+}
+
+.nav-container ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid;
+    /* gap: 2px; */
+}
+
+/* Notebook Tab Style  */
+.tab {
+    display: block;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #000;
+    border-bottom: none;
+    border-radius: 0 4px 0 0; 
+    background-color: #e0e0e0;
+    margin-left: -1px;
+}
+
+/* Active Tab (white, blends with center content) */
+.tab.active {
+    background-color: #fff;
+    font-weight: 500;
+    border-left: none;
+}
+
+/* Hover for inactive tabs */
+.tab:not(.active):hover {
+    background-color: #d0d0d0; /* Darker grey on hover */
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block; /* show only active tab */
+}
+
+/* Guestbook */
+.gb-entry {
+  margin-bottom: 14px;
+}
+.gb-author {
+  font-weight: normal;
+  /* font-style: italic; */
+  /* text-decoration: underline; */
+}
+.gb-time {
+  opacity: 0.7;
+}
+.gb-entry p {
+  margin: 4px 0 0 0;
+  padding-left: 2px;
+}
+
+/* --- Responsive Design (mobile) --- */
+@media (max-width: 992px) {
+    .content-grid {
+        grid-template-columns: 1fr; /* Stack all columns on mobile */
+    }
+    /* Adjust nav to horizontal on mobile (keep tab style) */
+    .right-nav ul {
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+    .tab {
+        border-right: 1px solid #000;
+        border-radius: 4px 4px 0 0; /* Horizontal tab curve */
+    }
+    .top-row {
+        flex-direction: column;
+    }
+    .card-body {
+        height: 200px;
+    }
+}
+
+/* SCRAPBOOK */
+.scrapbook-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 12px;
+  /* border: 1px solid #000; */
+  box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.scrap-item {
+  padding: 10px 0;
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 8px;
+}
+
+.scrap-date {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.scrap-tags {
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.scrap-title {
+  font-weight: bold;
+  margin: 0 0 6px 0;
+}
+
+.scrap-content {
+  white-space: pre-line;
+}
+
+embed {
+  width: 800px;
+  /* max-width: 600px; */
+  /* height: 420px; */
+  display: block;
+}
