@@ -1,0 +1,29 @@
+name: Deploy to Neocities
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npx @11ty/eleventy
+
+      - name: Deploy to Neocities
+        uses: bcomnes/deploy-to-neocities@v3
+        with:
+          api_token: ${{ secrets.050315572cb91d0f439a5d3865043a78 }}
+          cleanup: false
+          dist_dir: _site
