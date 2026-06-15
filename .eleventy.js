@@ -4,7 +4,7 @@ module.exports = function (eleventyConfig) {
   // });
 
   eleventyConfig.addCollection("scrapbook", function(collectionApi) {
-    let posts = collectionApi.getFilteredByGlob("src/scrapbook/**/*.md");
+    let posts = collectionApi.getFilteredByGlob("src/scrapbook/*.md");
     // Sort by date: NEWEST FIRST
     posts.sort((a, b) => b.date.getTime() - a.date.getTime());
     return posts;
