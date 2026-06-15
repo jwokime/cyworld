@@ -1,8 +1,4 @@
 module.exports = function (eleventyConfig) {
-  // eleventyConfig.addCollection("scrapbook", function(collectionApi) {
-  //   return collectionApi.getFilteredByGlob("src/scrapbook/**/*.md");
-  // });
-
   eleventyConfig.addCollection("scrapbook", function(collectionApi) {
     let posts = collectionApi.getFilteredByGlob("src/scrapbook/*.md");
     // Sort by date: NEWEST FIRST
