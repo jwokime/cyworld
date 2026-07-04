@@ -382,18 +382,6 @@ a:visited {
     margin-left: -1px;
 }
 
-.tab-link {
-    display: block;
-    padding: 10px 10px;
-    text-decoration: none;
-    color: #000;
-    border: 1px solid #000;
-    border-bottom: none;
-    border-radius: 0 4px 0 0; 
-    background-color: #e0e0e0;
-    margin-left: -1px;
-}
-
 /* Active Tab (white, blends with center content) */
 .tab.active {
     background-color: #fff;
@@ -403,10 +391,6 @@ a:visited {
 
 /* Hover for inactive tabs */
 .tab:not(.active):hover {
-    background-color: #d0d0d0; /* Darker grey on hover */
-}
-
-.tab-link:hover {
     background-color: #d0d0d0; /* Darker grey on hover */
 }
 
