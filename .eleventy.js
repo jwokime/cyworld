@@ -23,7 +23,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/scrapbook/img");
 
   return {
-    dir: { input: "src", output: "_site" },
+    dir: { input: "src", output: "." },
     templateFormats: ["njk", "md", "html"],
     htmlTemplateEngine: "njk"
   };
