@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/style.css">
     <base target="_blank">
     <link rel="icon" href="/assets/favicon/favicon2.png" type="image/png">
+    <script src="https://louisabraham.github.io/nekojs/neko.js" data-autostart></script>
 </head>
 <body>
     <div class="page-frame">
@@ -36,9 +37,9 @@
                         <li><a href="#website" class="folder">cool websites</a></li>
                         <li><a href="#meme" class="folder">memes and tweets</a></li>
                         <li><a href="#useful" class="folder">useful resources</a></li>
-                        <li><a href="#game" class="folder">nostalgic games</a></li>
+                        <!-- <li><a href="#game" class="folder">nostalgic games</a></li> -->
                         <li><a href="#poli-ed" class="folder">political</a></li>
-                        <!-- <li><a href="#etc" class="folder">etc etc etc</a></li> -->
+                        <li><a href="#etc" class="folder">etc etc etc</a></li>
                     </ul>
                 </div>
 
@@ -65,11 +66,11 @@
                     <main class="center-main">
                         <div class="top-row">
                             <div class="section">
-                                <div class="section-label">Recent</div>
+                                <div class="section-label">Recents</div>
                                 <ul class = "recent-posts">
                                 {% set recentPosts = collections.scrapbook %}
                                 {% for post in recentPosts %}
-                                    {% if loop.index <= 3 %}
+                                    {% if loop.index <= 4 %}
                                     <a href="#" class="recent-link" data-post-anchor="{{ post.data.title | slugify }}" style="margin-bottom: 5px">
                                         • [{{ post.data.tags[0] }}] {{ post.data.title }}
                                     </a>
@@ -78,18 +79,11 @@
                                 </ul>
                             </div>
                             
-                            <div class="section">
-                                <div class="section-label" style="border: none; color: transparent;">filler</div>
-                                <table class="social-cards">
-                                    <tr> <!-- Row 1 -->
-                                        <td><a href="https://x.com/G1G0LD">twitter</a></td>
-                                        <td><a href="https://instagram.com/jwokime">instagram</a></td>
-                                    </tr>
-                                    <tr> <!-- Row 2 -->
-                                        <td><a href="https://jwokim.substack.com/">substack</a></td>
-                                        <td><a href="">email</a></td>
-                                    </tr>
-                                </table>
+                            <div class="section" style="border:1px solid #000;">
+                                <div class="section-label" style ="padding: 5px; text-align: center;">changelog</div>
+                                <div class="changelog-container">
+                                    {% includeChangelog %}
+                                </div>
                             </div>
                             
                         </div>
@@ -99,7 +93,7 @@
                             <div class="section-label">Mini-home</div>
                         
                             <div class="mini-home">
-                                <img src="/assets/minihome/subway.gif" alt="mini-home" class="room-bg">
+                                <img src="/assets/minihome/water-room.gif" alt="mini-home" class="room-bg">
                                 
                                 <!-- DRAGGABLE ELEMENTS -->
                                 <div class="draggable-element" id="element1">
@@ -146,8 +140,24 @@
                     </ul>
                 </nav>
             </div>       
-        </div>
+        </div> 
     </div>
+
+    <div class="right-sidebar">
+        <div class="window-top">
+            extras
+            <button class="window-button">_</button>
+            <button class="window-button" style="margin-left: 2px;">x</button>
+
+        </div>
+        <div class="pet-embed">
+            <iframe width="314" height="321" scrolling="no" src="https://gify.pet/pet/pet.html?name=minipet&dob=1783178788&gender=f&element=Fire&pet=cat.gif&map=night.gif&background=pink.gif&tablecolor=black&textcolor=white" frameborder="0"></iframe>
+        </div>
+
+        <div class="chat-embed">
+            <iframe src="https://www3.cbox.ws/box/?boxid=3556826&boxtag=zQpjCh" width="100%" height="300" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
+        </div>
+    </div>   
 </body>
 <script src="/script.js"></script>
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>

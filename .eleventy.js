@@ -6,12 +6,21 @@ module.exports = function (eleventyConfig) {
     return posts;
   });
 
+  // Add shortcode to include changelog.html
+  eleventyConfig.addNunjucksShortcode("includeChangelog", function() {
+    const fs = require("fs");
+    try {
+      return fs.readFileSync("./src/changelog.html", "utf-8");
+    } catch (err) {
+      console.error("Error reading changelog.html:", err);
+      return "";
+    }
+  });
+
   eleventyConfig.addPassthroughCopy("src/style.css");
   eleventyConfig.addPassthroughCopy("src/script.js");
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/scrapbook/img");
-  eleventyConfig.addPassthroughCopy("src/scrapbook/games");
-  eleventyConfig.addPassthroughCopy("src/img.ibravo.com");
 
   return {
     dir: { input: "src", output: "_site" },

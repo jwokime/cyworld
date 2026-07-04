@@ -24,6 +24,19 @@ fetch('https://arunhitcounter.com/hit_tracker.php?website_name=jwocyworld')
 
 const tabButtons = document.querySelectorAll('.tab');
 const tabContents = document.querySelectorAll('.tab-content');
+const profile = document.querySelector('.profile');
+const folders = document.querySelector('.scrapbook-folders');
+
+function updateSidebarForTab(target) {
+  if (!profile || !folders) return;
+  if (target === '#scrapbook') {
+    profile.style.display = 'none';
+    folders.style.display = 'block';
+  } else {
+    profile.style.display = 'block';
+    folders.style.display = 'none';
+  }
+}
 
 // Switch tab display + active class
 function switchTab(targetHash) {
@@ -43,6 +56,8 @@ function switchTab(targetHash) {
     content.classList.remove('active');
   });
   document.querySelector(target)?.classList.add('active');
+
+  updateSidebarForTab(target);
 }
 
 // 1. Click tabs → instant switch
@@ -62,58 +77,58 @@ window.addEventListener('hashchange', () => switchTab(window.location.hash));
 
 // Guestbook //
 
-async function loadGuestbook() {
-  const apiKey = "AIzaSyCkUY3R7BYVeJ9rHbHClHbxwER3GLQB0dU";
-  const sheetId = "1hoxK7zD4tEHAvJbF3VT-M-eEjcOe02YXSYjJ9vcyl7U";
-  const sheetName = "Form Responses 1";
+// async function loadGuestbook() {
+//   const apiKey = "AIzaSyCkUY3R7BYVeJ9rHbHClHbxwER3GLQB0dU";
+//   const sheetId = "1hoxK7zD4tEHAvJbF3VT-M-eEjcOe02YXSYjJ9vcyl7U";
+//   const sheetName = "Form Responses 1";
 
-  try {
-    const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`);
-    console.log("Response status:", res.status);
-    const data = await res.json();
-    const rows = data.values;
-    const container = document.getElementById("guestbook-messages");
+//   try {
+//     const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`);
+//     console.log("Response status:", res.status);
+//     const data = await res.json();
+//     const rows = data.values;
+//     const container = document.getElementById("guestbook-messages");
     
-    container.innerHTML = "";
+//     container.innerHTML = "";
 
-    // Show NEWEST first
-    for (let i = 1; i < rows.length; i++) {
-      const timestamp = rows[i][0];
-      const name = rows[i][2];
-      const message = rows[i][3];
-      const emoji = rows[i][4];
+//     // Show NEWEST first
+//     for (let i = 1; i < rows.length; i++) {
+//       const timestamp = rows[i][0];
+//       const name = rows[i][2];
+//       const message = rows[i][3];
+//       const emoji = rows[i][4];
 
-      const entry = document.createElement("div");
-      entry.className = "gb-entry";
+//       const entry = document.createElement("div");
+//       entry.className = "gb-entry";
 
-      const displayEmoji = emoji && emoji.trim() !== "" ? emoji : "*";
+//       const displayEmoji = emoji && emoji.trim() !== "" ? emoji : "*";
 
-        const authorSpan = document.createElement("span");
-        authorSpan.className = "gb-author";
-        authorSpan.textContent = displayEmoji + " " + name;
+//         const authorSpan = document.createElement("span");
+//         authorSpan.className = "gb-author";
+//         authorSpan.textContent = displayEmoji + " " + name;
 
-      const timeSpan = document.createElement("span");
-      timeSpan.className = "gb-time";
-      timeSpan.textContent = "[" + timestamp + "]";
+//       const timeSpan = document.createElement("span");
+//       timeSpan.className = "gb-time";
+//       timeSpan.textContent = "[" + timestamp + "]";
 
-      const msgPara = document.createElement("p");
-      msgPara.textContent = message;
+//       const msgPara = document.createElement("p");
+//       msgPara.textContent = message;
     
-      entry.appendChild(authorSpan);
-      entry.appendChild(document.createTextNode(" "));
-      entry.appendChild(timeSpan);
-      entry.appendChild(msgPara);
+//       entry.appendChild(authorSpan);
+//       entry.appendChild(document.createTextNode(" "));
+//       entry.appendChild(timeSpan);
+//       entry.appendChild(msgPara);
 
-      container.appendChild(entry);
-    }
+//       container.appendChild(entry);
+//     }
 
-  } catch (err) {
-    console.error("Load error:", err);
-    document.getElementById("guestbook-messages").innerText = "Failed to load messages.";
-  }
-}
+//   } catch (err) {
+//     console.error("Load error:", err);
+//     document.getElementById("guestbook-messages").innerText = "Failed to load messages.";
+//   }
+// }
 
-document.addEventListener("DOMContentLoaded", loadGuestbook);
+// document.addEventListener("DOMContentLoaded", loadGuestbook);
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('gb-form');
@@ -129,26 +144,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.getElementById('emoji-select').addEventListener('change', function() {
-  document.getElementById('emoji-input').value = this.value;
-});
-
-// left sidebar scrapbook folders
-const tabs = document.querySelectorAll('.tab');
-const profile = document.querySelector('.profile');
-const folders = document.querySelector('.scrapbook-folders');
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    if (tab.getAttribute('href') === '#scrapbook') {
-      profile.style.display = 'none';
-      folders.style.display = 'block';
-    } else {
-      profile.style.display = 'block';
-      folders.style.display = 'none';
-    }
+const emojiSelect = document.getElementById('emoji-select');
+const emojiInput = document.getElementById('emoji-input');
+if (emojiSelect && emojiInput) {
+  emojiSelect.addEventListener('change', function() {
+    emojiInput.value = this.value;
   });
-});
+}
 
 // scrapbook
 document.addEventListener('DOMContentLoaded', function() {
