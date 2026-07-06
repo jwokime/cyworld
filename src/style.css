@@ -61,7 +61,7 @@ a:visited {
 .page-frame {
     display: grid;
     padding: 20px;
-    padding-top: 25px;
+    padding-top: 18px;
     position: relative;
     width: fit-content;
     background: #FAFAFA;
@@ -356,25 +356,6 @@ a:visited {
     height: auto;
     display: block;
 }
-
-/* Initial default positions (adjust top/left for each element) */
-#element1 {
-    top: 220px;
-    left: 650px;
-}
-#element2 {
-    top: 350px;
-    left: 100px;
-}
-#element3 { 
-    top: 220px;
-    left: 480px;
-}
-#element4 { 
-    top: 130px;
-    left: 300px;
-}
-
 
 
 /* --- Right Nav Sidebar --- */
