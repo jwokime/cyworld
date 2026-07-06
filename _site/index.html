@@ -73,21 +73,45 @@
                                     <div class="section">
                                         <div class="section-label">Recents</div>
                                         <ul class = "recent-posts">
-                                        {% set recentPosts = collections.scrapbook %}
-                                        {% for post in recentPosts %}
-                                            {% if loop.index <= 4 %}
-                                            <a href="#" class="recent-link" data-post-anchor="{{ post.data.title | slugify }}" style="margin-bottom: 5px">
-                                                • [{{ post.data.tags[0] }}] {{ post.data.title }}
+                                        
+                                        
+                                            
+                                            <a href="#" class="recent-link" data-post-anchor="east-asian-graphics-archive" style="margin-bottom: 5px">
+                                                • [website] east asian graphics archive
                                             </a>
-                                            {% endif %}
-                                        {% endfor %}
+                                            
+                                        
+                                            
+                                            <a href="#" class="recent-link" data-post-anchor="solidarity-from-cuba-to-korea" style="margin-bottom: 5px">
+                                                • [poli-ed] solidarity from cuba to korea
+                                            </a>
+                                            
+                                        
+                                            
+                                            <a href="#" class="recent-link" data-post-anchor="cyworld-asset-archive" style="margin-bottom: 5px">
+                                                • [website] cyworld asset archive
+                                            </a>
+                                            
+                                        
+                                            
+                                            <a href="#" class="recent-link" data-post-anchor="old-games" style="margin-bottom: 5px">
+                                                • [resource] old games
+                                            </a>
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
                                         </ul>
                                     </div>
                                     
                                     <div class="section" style="border:1px solid #000;">
                                         <div class="section-label" style ="padding: 5px; text-align: center;">changelog</div>
                                         <div class="changelog-container">
-                                            {% includeChangelog %}
+                                            <li>to do: add title, add more menu items, fix padding for different screen sizes, change pet to sayclub avatar, stick radio on the right, add in surfing dropdown with links, add minime selections, make minime draggable</li>
+<li>2026-07-04: added changelog section, added fun embeds on the right</li>
+<li>2026-06-10: homepy launched</li>
                                         </div>
                                     </div>
                                     
@@ -160,14 +184,83 @@
                         <div id="scrapbook" class="tab-content">
                             <main class="center-main">
                                     <div class="scrapbook-container" id="scrapbook-posts">
-                                        {% for post in collections.scrapbook %}
-                                        <div class="scrap-item" id="{{ post.data.title | slugify }}" data-tags="{{ post.data.tags | join(' ') }}">
-                                            <div class="scrap-date">[{{ post.date }}]</div>
-                                            <h3 class="scrap-title">{{ post.data.title }}</h3>
-                                            <div class="scrap-content">{{ post.content | safe }}</div>
-                                            <div class="scrap-tags">tags: {{ post.data.tags | join(', ')}} </div>
+                                        
+                                        <div class="scrap-item" id="east-asian-graphics-archive" data-tags="website useful">
+                                            <div class="scrap-date">[Mon Jun 15 2026 08:00:00 GMT+0800 (China Standard Time)]</div>
+                                            <h3 class="scrap-title">east asian graphics archive</h3>
+                                            <div class="scrap-content"><p>a project i did with friends collecting graphics made by and for east asia. website by me :)</p>
+<p>-&gt; <a href="https://eastasiangraphicsarchive.com/">visit site</a></p>
+<img src="/scrapbook/img/EAGA4.gif" alt="eaga4" style="max-width: 400px; padding-bottom: 15px;">
+<img src="/scrapbook/img/EAGA5.gif" alt="eaga5" style="max-width: 400px; padding-bottom: 15px;">
+</div>
+                                            <div class="scrap-tags">tags: website, useful </div>
                                         </div>
-                                        {% endfor %}
+                                        
+                                        <div class="scrap-item" id="solidarity-from-cuba-to-korea" data-tags="poli-ed">
+                                            <div class="scrap-date">[Wed Jun 10 2026 08:00:00 GMT+0800 (China Standard Time)]</div>
+                                            <h3 class="scrap-title">solidarity from cuba to korea</h3>
+                                            <div class="scrap-content"><p>Love Cuban propaganda posters; this one hits close to home.</p>
+<img src="../scrapbook/img/blanco1980.webp" alt="cubaposter" style="max-width: 400px; padding-bottom: 15px;">
+<p>Alberto Blanco, We Denounce the Artificial Division of Korea, 1980.</p>
+<p>-&gt; <a href="https://brooklynrail.org/2022/02/artseen/Art-of-the-Cuban-Revolution/">More art from the Cuban Revolution</a></p>
+</div>
+                                            <div class="scrap-tags">tags: poli-ed </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="cyworld-asset-archive" data-tags="website useful">
+                                            <div class="scrap-date">[Tue Jun 09 2026 08:00:00 GMT+0800 (China Standard Time)]</div>
+                                            <h3 class="scrap-title">cyworld asset archive</h3>
+                                            <div class="scrap-content"><p><img src="../assets/dividers/pinkscribbles.gif" alt="divider"></p>
+<p>thank you to all the avid tumblr collectors for keeping alive the long lost early digital world. i got most of the cyworld assets from these lovely blogs.</p>
+<p>-&gt; <a href="https://www.tumblr.com/pepperspoppies/">pepperspoppies</a>
+-&gt; <a href="https://www.tumblr.com/pinkcore-png">pinkcore</a>
+-&gt; <a href="https://www.tumblr.com/animatedglittergraphics-n-more">animatedglittergraphics</a>
+-&gt; <a href="https://www.tumblr.com/lostsozai">lostsozai</a></p>
+</div>
+                                            <div class="scrap-tags">tags: website, useful </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="old-games" data-tags="resource game">
+                                            <div class="scrap-date">[Tue Jun 09 2026 08:00:00 GMT+0800 (China Standard Time)]</div>
+                                            <h3 class="scrap-title">old games</h3>
+                                            <div class="scrap-content"><p>a way to play old flash games that we used to love.. u know what, fuck it i'm bringing them to the site</p>
+<p>-&gt; <a href="https://vidkidz.tistory.com/">vidkidz</a>
+-&gt; <a href="https://footballog.net/bbs/board.php?bo_table=memory_Hotflash">개꿀잼게임</a></p>
+<p><img src="../assets/dividers/dancingpets.gif" alt="divider"></p>
+</div>
+                                            <div class="scrap-tags">tags: resource, game </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="typography-principles-website" data-tags="website">
+                                            <div class="scrap-date">[Tue Jun 09 2026 08:00:00 GMT+0800 (China Standard Time)]</div>
+                                            <h3 class="scrap-title">typography principles website</h3>
+                                            <div class="scrap-content"><p>typography principles and the craziest scroll-based website</p>
+<img src="/scrapbook/img/typographyprinciples_screenshot.png" alt="typography principles" style="width: 100%; height: auto;">
+<p>-&gt; <a href="https://typographyprinciples.obys.agency/">site</a></p>
+</div>
+                                            <div class="scrap-tags">tags: website </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="revolution" data-tags="poli-ed meme">
+                                            <div class="scrap-date">[Tue Jun 09 2026 08:00:00 GMT+0800 (China Standard Time)]</div>
+                                            <h3 class="scrap-title">revolution</h3>
+                                            <div class="scrap-content"><img src="../scrapbook/img/sailormarx.jpg" alt="sailormoon" style="max-width: 300px; padding-bottom: 10px">
+<p>poor? depressed? angry at the injustices in the world? lost in your career? don't know what to do with your life? hungry for change?</p>
+<p>.
+.
+.</p>
+<img src="../assets/dividers/rapidblinkingheart.gif" alt="divider" style="width: 300px; padding-bottom: 15px">
+<p>-&gt; -&gt; -&gt; <a href="https://www.marxists.org/archive/index.htm">!!!get woke now!!!</a> &lt;- &lt;- &lt;-</p>
+<img src="../assets/dividers/rapidblinkingheart.gif" alt="divider" style="width: 300px">
+<p>.
+.
+.</p>
+<img src="../scrapbook/img/pookiemarx.jpg" alt="pookiemarx" style="width: 300px">
+<img src="../scrapbook/img/pookielenin.jpg" alt="pookiemarx" style="width: 300px">
+<img src="../scrapbook/img/pookiestalin.jpg" alt="pookiemarx" style="width: 300px"></div>
+                                            <div class="scrap-tags">tags: poli-ed, meme </div>
+                                        </div>
+                                        
                                     </div>
                             </main>
                         </div>

@@ -10,9 +10,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksShortcode("includeChangelog", function() {
     const fs = require("fs");
     try {
-      return fs.readFileSync("./src/changelog.html", "utf-8");
+      return fs.readFileSync("./src/changelog.md", "utf-8");
     } catch (err) {
-      console.error("Error reading changelog.html:", err);
+      console.error("Error reading changelog.md:", err);
       return "";
     }
   });
@@ -23,7 +23,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/scrapbook/img");
 
   return {
-    dir: { input: "src", output: "." },
+    dir: { input: "src", output: "_site" },
     templateFormats: ["njk", "md", "html"],
     htmlTemplateEngine: "njk"
   };
