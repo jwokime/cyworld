@@ -9,6 +9,7 @@ module.exports = function (eleventyConfig) {
   // Add shortcode to include changelog.html
   eleventyConfig.addNunjucksShortcode("includeChangelog", function() {
     const fs = require("fs");
+    const { marked } = require("marked");
     try {
       return fs.readFileSync("./src/changelog.md", "utf-8");
     } catch (err) {
