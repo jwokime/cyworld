@@ -1,0 +1,21 @@
+<div id="game-wrapper-ramen" style="width:100%; max-width:600px; position:relative;">
+  <img id="game-poster-ramen" src="/scrapbook/games/sue-class.jpg" 
+    style="width:100%; cursor:pointer; display:block;">
+  <div id="game-box-ramen" style="width:100%; height:450px; display:none;"></div>
+</div>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<div id="game-box-ramen" style="width:100%; max-width:600px; height:450px;"></div>
+<script>
+window.RufflePlayer = window.RufflePlayer || {};
+window.addEventListener("load", () => {
+  const ruffle = window.RufflePlayer.newest();
+  const container = document.getElementById("game-box-ramen");
+  const player = ruffle.createPlayer();
+  player.style.width = "100%";
+  player.style.height = "100%";
+  container.appendChild(player);
+    player.load({
+    url: "https://jwokime.github.io/cyworld/scrapbook/games/sue-class.swf"
+    });
+});
+</script>

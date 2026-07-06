@@ -6,16 +6,25 @@ module.exports = function (eleventyConfig) {
     return posts;
   });
 
+  eleventyConfig.addCollection("diary", function(collectionApi) {
+    let posts = collectionApi.getFilteredByGlob("src/diary/*.md");
+    posts.sort((a, b) => b.date.getTime() - a.date.getTime());
+    return posts;
+  });
+
+  eleventyConfig.addCollection("jukebox", function(collectionApi) {
+  let posts = collectionApi.getFilteredByGlob("src/jukebox/*.md");
+  return posts;
+  });
+
+  eleventyConfig.addFilter("longDate", (date) => {
+  return date.toDateString();
+  });
+
   // Add shortcode to include changelog.html
-  eleventyConfig.addNunjucksShortcode("includeChangelog", function() {
+  eleventyConfig.addNunjucksShortcode("changelog", function() {
     const fs = require("fs");
-    const { marked } = require("marked");
-    try {
-      return fs.readFileSync("./src/changelog.md", "utf-8");
-    } catch (err) {
-      console.error("Error reading changelog.md:", err);
-      return "";
-    }
+    return fs.readFileSync("./src/changelog.md", "utf-8");
   });
 
   eleventyConfig.addPassthroughCopy("src/style.css");

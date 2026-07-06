@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ✧ jiwon's homepy ✧ </title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <base target="_blank">
+    <link rel="icon" href="/assets/favicon/favicon2.png" type="image/png">
+    <script src="https://louisabraham.github.io/nekojs/neko.js" data-autostart></script>
+</head>
+<body>
+    <div class="site-wrapper">
+        <div class="page-frame-frame">
+            <div class="page-frame">
+                <div class="homepy-header">
+                    <div class="visitor-counter">
+                        TODAY: <span id="today-count">0</span> | TOTAL: <span id="total-count">0</span>
+                    </div>
+                    <div> øㅕEH까ズl 안ㅈΓヱ 뭐ぁĦ ଘ(੭ˊᵕˋ)੭* ੈ✩‧₊˚ </div>
+                </div>
+                <div class="content-grid">
+                    <!-- Left Sidebar-->
+                    <div class="left-sidebar">
+                        <!-- <img src="/assets/dividers/blinkingstar.gif" alt="sidebar-divider" style="width: 100%;"> -->
+                        <!-- Mini-Me -->
+                        <div class="profile">
+                            <img src="/assets/minime/pic2.jpg" alt="mini-me" class="mini-me-img">
+                            <div class="today-status">
+                                <p>today is... ♥︎</p>
+                            </div>
+                            <div class="bio-text">
+                                <p>hi i'm jiwon, welcome to my homepy ^-^</p>
+                            </div>
+                        </div>
+
+                        <div class="scrapbook-folders">
+                            <div style="padding-top: 15px;"> :: folders ::</div>
+                            <ul class="folder-list">
+                                <li><a href="#all" class="folder active">all</a></li>
+                                <li><a href="#website" class="folder">cool websites</a></li>
+                                <li><a href="#meme" class="folder">memes and tweets</a></li>
+                                <li><a href="#useful" class="folder">useful resources</a></li>
+                                <!-- <li><a href="#game" class="folder">nostalgic games</a></li> -->
+                                <li><a href="#poli-ed" class="folder">political</a></li>
+                                <li><a href="#etc" class="folder">etc etc etc</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+<!-- Center Main Content -->
+                    <div class="center-main-container">
+
+    <!-- HOMEPY main -->
+                        <div id="home" class="tab-content active">
+                            <main class="center-main">
+                                <div class="top-row">
+                                    <div class="section">
+                                        <div class="section-label" style="font-size: 0.9em;">Recents</div>
+                                        <ul class = "recent-posts">
+                                        
+                                        
+                                            
+                                            <a href="#" class="recent-link" data-post-anchor="east-asian-graphics-archive" style="margin-bottom: 5px">
+                                                • [website] east asian graphics archive
+                                            </a>
+                                            
+                                        
+                                            
+                                            <a href="#" class="recent-link" data-post-anchor="solidarity-from-cuba-to-korea" style="margin-bottom: 5px">
+                                                • [poli-ed] solidarity from cuba to korea
+                                            </a>
+                                            
+                                        
+                                            
+                                            <a href="#" class="recent-link" data-post-anchor="cyworld-asset-archive" style="margin-bottom: 5px">
+                                                • [website] cyworld asset archive
+                                            </a>
+                                            
+                                        
+                                            
+                                            <a href="#" class="recent-link" data-post-anchor="old-games" style="margin-bottom: 5px">
+                                                • [resource] old games
+                                            </a>
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="section" style="border:1px solid #000;">
+                                        <div class="section-label" style ="padding: 5px; text-align: center; font-size: 0.9em;">changelog</div>
+                                        <div class="changelog-container">
+                                            <li>2026-07-06: added title, additional menu, fixed right sidebar for different screen sizes
+<li>to do: change pet to sayclub avatar, stick radio on the right, add in surfing dropdown with links, add minime selections, make minime draggable</li>
+<li>2026-07-04: added changelog section, added fun embeds on the right</li>
+<li>2026-06-10: homepy launched</li>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <!-- Mini-Home -->
+                                <div class="section">
+                                    <div class="section-label" style="font-size: 0.9em;">Mini-home</div>
+                                
+                                    <div class="mini-home">
+                                        <img src="/assets/minihome/water-room.gif" alt="mini-home" class="room-bg">
+                                        
+                                        <!-- DRAGGABLE ELEMENTS -->
+                                        <div class="draggable-element" id="pukka" style="top: 100px; left: 500px;">
+                                            <img src="/assets/minime/cryingpukka.gif" class="pixel-img">
+                                        </div>
+
+                                        <div class="draggable-element" id="element2" style="top: 220px; left: 80px;">
+                                            <img src="/assets/minime/watermelon.gif" class="pixel-img">
+                                        </div>
+
+                                        <div class="draggable-element" id="devilgirl" style="top: 100px; left: 300px;">
+                                            <img src="/assets/minime/devilgirl.gif" class="pixel-img">
+                                        </div>
+                                        
+                                        <div class="draggable-element" id="sleepingshrimp" style="top: 160px; left: 60px;">
+                                            <img src="/assets/minime/sleepingshrimp.gif" class="pixel-img">
+                                        </div> 
+                                        
+                                        <div class="draggable-element" id="fairy" style="top: 160px; left: 550px;">
+                                            <img src="/assets/minime/fairy.gif" class="pixel-img">
+                                        </div> 
+
+                                    </div>
+                                </div>
+                            </main> 
+                        </div>
+    <!-- profile -->
+                        <div id="profile" class="tab-content">
+                            <main class="center-main">
+                                <div class="section">
+                                    <div class="section-label">profile</div>
+                                    <img src="assets/dividers/whimsyrain.png" style="width: 100%; padding-top: 5px;">
+                                    <div class="profile-content" style="text-align: center; transform: translateY(-30px);">
+                                        <p>name: jiwon</p>
+                                        <p>birth year: 1996</p>
+                                        <p>nationality: south korean</p>
+                                        <p>location: shanghai</p>
+                                        <p>mbti: intp/intj</p>
+                                        <p>zodiac: sagittarius</p>
+                                        <p>occupation: student</p>
+                                        <p>likes: revolution, low dew points, languages, used bookstores, seating that looks out onto the street, a free palestine, cats, jasmine green tea, backpacking with no plan, karl marx, beer on a sunny day, makgeoli on a rainy day </p>
+                                        <p>dislikes: capitalism, cinnamon flavoring, imperialism, settler colonies, monsoon season, cardio, CIA, media that is allergic to leaving anything unexplained, Europeans, inconsiderate walkers, speculative finance</p>
+
+                                        <img src="assets/dividers/vintagestars.png" style="width: 120%; transform: translateX(-10%)">
+
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+
+    <!-- diary -->
+                        <div id="diary" class="tab-content">
+                            <main class="center-main">
+                                <div class="section">
+                                    <div class="section-label">diary</div>
+                                    <div class="diary-container" id="diary-posts">
+                                        
+                                        <div class="diary-item" id="undefined">
+                                            <div class="diary-date">[Mon Jul 06 2026]</div>
+                                            <div class="diary-content"><p>Summer in Shanghai is oppressive. The muggy atmosphere sticks to your skin and your underarms in a way that makes you wish you were a corpse instead of a living, breathing, heat-emitting thing, but the city is relentless and piles of humans stack the subways from the door to the brim nonetheless. It's summer break now but I still go to school everyday to work at the summer session. The weeks-long course is called &quot;A New Order, China, and the World in Great Transformation,&quot; and I heard Radikha Desai speak today, who is a radical Indian scholar based in Canada. &quot;The most anti-imperial thing a country can do is develop itself,&quot; she said, which I scribbled down expeditiously.</p>
+</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+
+    <!-- jukbox -->
+                        <div id="jukebox" class="tab-content">
+                            <main class="center-main">
+                                <div class="section">
+                                    <div class="section-label">jukebox</div>
+                                    <div class="jukebox-content">
+                                        
+                                        <div class="jukebox-item">
+                                            <div class="jukebox-content"><p>RADIO:</p>
+<table id="jukebox" style="border-top: dotted 1px #000; width: 100%;">
+    <tr>
+      <td>Radio Alhara - راديو الحارة</td>
+      <td>experimental, world</td>
+      <td> <a href="https://radioalhara.net/"> [listen] </a></td>
+    </tr>
+    <tr>
+      <td>Nightwave Plaza</td>
+      <td>vaporwave, ambient</td>
+      <td> <a href="https://plaza.one/"> [listen] </a></td>
+    </tr>
+    <tr>
+      <td>NTS Radio</td>
+      <td>pop, discovery</td>
+      <td> <a href="https://www.nts.live/"> [listen] </a></td>
+    </tr>
+</table></div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </main>
+                        </div>
+
+    <!-- scrapbook -->
+                        <div id="scrapbook" class="tab-content">
+                            <main class="center-main">
+                                    <div class ="section-label">SCRAPBOOK</div>
+                                    <div class="scrapbook-container" id="scrapbook-posts">
+                                        
+                                        <div class="scrap-item" id="east-asian-graphics-archive" data-tags="website useful">
+                                            <div class="scrap-date">[Mon Jun 15 2026]</div>
+                                            <h3 class="scrap-title">east asian graphics archive</h3>
+                                            <div class="scrap-content"><p>a project i did with friends collecting graphics made by and for east asia. website by me :)</p>
+<p>-&gt; <a href="https://eastasiangraphicsarchive.com/">visit site</a></p>
+<img src="/scrapbook/img/EAGA4.gif" alt="eaga4" style="max-width: 400px; padding-bottom: 15px;">
+<img src="/scrapbook/img/EAGA5.gif" alt="eaga5" style="max-width: 400px; padding-bottom: 15px;">
+</div>
+                                            <div class="scrap-tags">tags: website, useful </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="solidarity-from-cuba-to-korea" data-tags="poli-ed">
+                                            <div class="scrap-date">[Wed Jun 10 2026]</div>
+                                            <h3 class="scrap-title">solidarity from cuba to korea</h3>
+                                            <div class="scrap-content"><p>Love Cuban propaganda posters; this one hits close to home.</p>
+<img src="../scrapbook/img/blanco1980.webp" alt="cubaposter" style="max-width: 400px; padding-bottom: 15px;">
+<p>Alberto Blanco, We Denounce the Artificial Division of Korea, 1980.</p>
+<p>-&gt; <a href="https://brooklynrail.org/2022/02/artseen/Art-of-the-Cuban-Revolution/">More art from the Cuban Revolution</a></p>
+</div>
+                                            <div class="scrap-tags">tags: poli-ed </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="cyworld-asset-archive" data-tags="website useful">
+                                            <div class="scrap-date">[Tue Jun 09 2026]</div>
+                                            <h3 class="scrap-title">cyworld asset archive</h3>
+                                            <div class="scrap-content"><p><img src="../assets/dividers/pinkscribbles.gif" alt="divider"></p>
+<p>thank you to all the avid tumblr collectors for keeping alive the long lost early digital world. i got most of the cyworld assets from these lovely blogs.</p>
+<p>-&gt; <a href="https://www.tumblr.com/pepperspoppies/">pepperspoppies</a>
+-&gt; <a href="https://www.tumblr.com/pinkcore-png">pinkcore</a>
+-&gt; <a href="https://www.tumblr.com/animatedglittergraphics-n-more">animatedglittergraphics</a>
+-&gt; <a href="https://www.tumblr.com/lostsozai">lostsozai</a></p>
+</div>
+                                            <div class="scrap-tags">tags: website, useful </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="old-games" data-tags="resource game">
+                                            <div class="scrap-date">[Tue Jun 09 2026]</div>
+                                            <h3 class="scrap-title">old games</h3>
+                                            <div class="scrap-content"><p>a way to play old flash games that we used to love.. u know what, fuck it i'm bringing them to the site</p>
+<p>-&gt; <a href="https://vidkidz.tistory.com/">vidkidz</a>
+-&gt; <a href="https://footballog.net/bbs/board.php?bo_table=memory_Hotflash">개꿀잼게임</a></p>
+<p><img src="../assets/dividers/dancingpets.gif" alt="divider"></p>
+</div>
+                                            <div class="scrap-tags">tags: resource, game </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="typography-principles-website" data-tags="website">
+                                            <div class="scrap-date">[Tue Jun 09 2026]</div>
+                                            <h3 class="scrap-title">typography principles website</h3>
+                                            <div class="scrap-content"><p>typography principles and the craziest scroll-based website</p>
+<img src="/scrapbook/img/typographyprinciples_screenshot.png" alt="typography principles" style="width: 100%; height: auto;">
+<p>-&gt; <a href="https://typographyprinciples.obys.agency/">site</a></p>
+</div>
+                                            <div class="scrap-tags">tags: website </div>
+                                        </div>
+                                        
+                                        <div class="scrap-item" id="revolution" data-tags="poli-ed meme">
+                                            <div class="scrap-date">[Tue Jun 09 2026]</div>
+                                            <h3 class="scrap-title">revolution</h3>
+                                            <div class="scrap-content"><img src="../scrapbook/img/sailormarx.jpg" alt="sailormoon" style="max-width: 300px; padding-bottom: 10px">
+<p>poor? depressed? angry at the injustices in the world? lost in your career? don't know what to do with your life? hungry for change?</p>
+<p>.
+.
+.</p>
+<img src="../assets/dividers/rapidblinkingheart.gif" alt="divider" style="width: 300px; padding-bottom: 15px">
+<p>-&gt; -&gt; -&gt; <a href="https://www.marxists.org/archive/index.htm">!!!get woke now!!!</a> &lt;- &lt;- &lt;-</p>
+<img src="../assets/dividers/rapidblinkingheart.gif" alt="divider" style="width: 300px">
+<p>.
+.
+.</p>
+<img src="../scrapbook/img/pookiemarx.jpg" alt="pookiemarx" style="width: 300px">
+<img src="../scrapbook/img/pookielenin.jpg" alt="pookiemarx" style="width: 300px">
+<img src="../scrapbook/img/pookiestalin.jpg" alt="pookiemarx" style="width: 300px"></div>
+                                            <div class="scrap-tags">tags: poli-ed, meme </div>
+                                        </div>
+                                        
+                                    </div>
+                            </main>
+                        </div>
+<!-- navigation -->
+                        <nav class="nav-container">
+                            <ul>
+                                <li><a href="#home" class="tab active">HOME</a></li>
+                                <li><a href="#profile" class="tab">PROFILE</a></li>
+                                <li><a href="#diary" class="tab">DIARY</a></li>
+                                <li><a href="#jukebox" class="tab">JUKEBOX</a></li>                    
+                                <li><a href="#scrapbook" class="tab">SCRAPBOOK</a></li>
+                                <li><a href="https://jwni.atabook.org/" class="tab-link">GUESTBOOK</a></li>
+                            </ul>
+                        </nav>
+                    </div>       
+                </div> 
+            </div>
+        </div>
+
+        <div class="sidebar-wrapper">
+            <div class="right-sidebar">
+                    <div class="window-top">
+                        NEOCITIES
+                        <button class="window-button" style="margin-left: 2px;"><a href="https://neocities.org/site/jwni">𖡼.𖤣𖥧 𖠿 𖡼.𖤣𖥧</a></button>
+
+                    </div>
+                    
+                    <div class="widget-container">
+                        <div class="pet-embed">
+                            <iframe width="300" height="300" scrolling="no" src="https://gify.pet/pet/pet.html?name=minipet&dob=1783178788&gender=f&element=Fire&pet=cat.gif&map=night.gif&background=pink.gif&tablecolor=black&textcolor=white" frameborder="0"></iframe>
+                        </div>
+
+                        <div class="chat-embed">
+                            <iframe src="https://www3.cbox.ws/box/?boxid=3556826&boxtag=zQpjCh" width="100%" height="270" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
+                        </div>
+                    </div>
+            </div>
+
+            <!-- Radio/BGM Widget -->
+            <div class="radio-widget" style="margin-top: 5px;">
+                <p style="margin: 0 5px 0 5px;">💿:</p>
+                <marquee class="radio-marquee" scrollamount="3">
+                    <a href="" id="radio-link" target="_blank"></a>
+                </marquee>
+                <div class="radio-controls">
+                    <button id="play-radio" class="radio-btn">▶</button>
+                    <button id="pause-radio" class="radio-btn">■</button>
+                    <button id="next-radio" class="radio-btn">▶▶</button>
+                </div>
+                <audio id="bgm-audio" loop autoplay></audio>
+            </div>
+        </div>
+
+    </div>   
+</body>
+<script src="/script.js"></script>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</html>

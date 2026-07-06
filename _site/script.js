@@ -3,14 +3,53 @@
 const bgmAudio = document.getElementById('bgm-audio');
 const playBtn = document.getElementById('play-radio');
 const pauseBtn = document.getElementById('pause-radio');
+const nextBtn = document.getElementById('next-radio');
+const radioLink = document.getElementById('radio-link');
+let currentStation = 0;
 
-playBtn.addEventListener('click', () => {
-    bgmAudio.play();
-});
+const stations = [
+  { name: "NTS Radio", url: "https://stream-relay-geo.ntslive.net/stream", href: "https://nts.live/" },
+  { name: "Nightwave Plaza Radio", url: "https://radio.plaza.one/mp3", href: "https://plaza.one/" },
+  { name: "Radio Alhara — راديو الحارة", url: "https://stream.radiojar.com/78cxy6wkxtzuv", href: "https://radioalhara.net/" },
+];
 
-pauseBtn.addEventListener('click', () => {
-    bgmAudio.pause();
-});
+function loadStation(index) {
+  const station = stations[index] || stations[0];
+  if (!bgmAudio || !radioLink || !station) return;
+  bgmAudio.src = station.url;
+  bgmAudio.load();
+  radioLink.textContent = station.name;
+  radioLink.href = station.href;
+}
+
+async function startPlayback() {
+  if (!bgmAudio) return;
+  try {
+    loadStation(currentStation);
+    await bgmAudio.play();
+  } catch (err) {
+    console.warn('Radio playback failed:', err);
+  }
+}
+
+if (playBtn) {
+  playBtn.addEventListener('click', startPlayback);
+}
+
+if (pauseBtn) {
+  pauseBtn.addEventListener('click', () => bgmAudio?.pause());
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener('click', () => {
+    currentStation = (currentStation + 1) % stations.length;
+    loadStation(currentStation);
+    startPlayback();
+  });
+}
+
+loadStation(currentStation);
+
 
 
 
@@ -130,27 +169,27 @@ window.addEventListener('hashchange', () => switchTab(window.location.hash));
 
 // document.addEventListener("DOMContentLoaded", loadGuestbook);
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('gb-form');
-  const messageInput = document.getElementById('message-input');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const form = document.getElementById('gb-form');
+//   const messageInput = document.getElementById('message-input');
 
-  form?.addEventListener('submit', () => {
-    setTimeout(() => {
-        loadGuestbook();
-        const container = document.getElementById("guestbook-messages");
-        container.scrollTop = container.scrollHeight;
-        messageInput.value = '';
-    }, 1500);
-    });
-});
+//   form?.addEventListener('submit', () => {
+//     setTimeout(() => {
+//         loadGuestbook();
+//         const container = document.getElementById("guestbook-messages");
+//         container.scrollTop = container.scrollHeight;
+//         messageInput.value = '';
+//     }, 1500);
+//     });
+// });
 
-const emojiSelect = document.getElementById('emoji-select');
-const emojiInput = document.getElementById('emoji-input');
-if (emojiSelect && emojiInput) {
-  emojiSelect.addEventListener('change', function() {
-    emojiInput.value = this.value;
-  });
-}
+// const emojiSelect = document.getElementById('emoji-select');
+// const emojiInput = document.getElementById('emoji-input');
+// if (emojiSelect && emojiInput) {
+//   emojiSelect.addEventListener('change', function() {
+//     emojiInput.value = this.value;
+//   });
+// }
 
 // scrapbook
 document.addEventListener('DOMContentLoaded', function() {
