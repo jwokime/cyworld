@@ -5,31 +5,83 @@ const playBtn = document.getElementById('play-radio');
 const pauseBtn = document.getElementById('pause-radio');
 const nextBtn = document.getElementById('next-radio');
 const radioLink = document.getElementById('radio-link');
-let currentStation = 0;
+let currentSelection = null;
+let activeRow = null;
 
 const stations = [
-  { name: "NTS Radio", url: "https://stream-relay-geo.ntslive.net/stream", href: "https://nts.live/" },
-  { name: "Nightwave Plaza Radio", url: "https://radio.plaza.one/mp3", href: "https://plaza.one/" },
-  { name: "Radio Alhara — راديو الحارة", url: "https://stream.radiojar.com/78cxy6wkxtzuv", href: "https://radioalhara.net/" },
+  { type: 'radio', name: 'Radio Alhara — راديو الحارة', url: 'https://stream.radiojar.com/78cxy6wkxtzuv', href: 'https://radioalhara.net/' },
+  { type: 'radio', name: 'Nightwave Plaza Radio', url: 'https://radio.plaza.one/mp3', href: 'https://plaza.one/' },
+  { type: 'radio', name: 'NTS Radio', url: 'https://stream-relay-geo.ntslive.net/stream', href: 'https://nts.live/' },
 ];
 
-function loadStation(index) {
-  const station = stations[index] || stations[0];
-  if (!bgmAudio || !radioLink || !station) return;
-  bgmAudio.src = station.url;
+function resolveMediaUrl(stream) {
+  if (!stream) return '';
+  if (/^https?:\/\//i.test(stream) || stream.startsWith('/')) return stream;
+  return `/${stream}`;
+}
+
+function clearSelectionHighlight() {
+  document.querySelectorAll('.jukebox-station, .jukebox-mp3').forEach(row => {
+    row.classList.remove('active');
+    row.style.fontWeight = 'normal';
+  });
+}
+
+function applySelection(source, row = null) {
+  if (!bgmAudio || !radioLink || !source) return;
+
+  currentSelection = source;
+  activeRow = row || activeRow;
+  bgmAudio.src = resolveMediaUrl(source.stream || source.url);
   bgmAudio.load();
-  radioLink.textContent = station.name;
-  radioLink.href = station.href;
+  bgmAudio.loop = source.type !== 'mp3';
+  radioLink.textContent = source.name;
+  radioLink.href = source.href || '#';
+
+  clearSelectionHighlight();
+  if (activeRow) {
+    activeRow.classList.add('active');
+    activeRow.style.fontWeight = 'bold';
+  }
+}
+
+function getDefaultSelection() {
+  return { ...stations[0], stream: stations[0].url, type: 'radio' };
 }
 
 async function startPlayback() {
   if (!bgmAudio) return;
   try {
-    loadStation(currentStation);
+    if (!currentSelection) {
+      currentSelection = getDefaultSelection();
+    }
+    applySelection(currentSelection);
     await bgmAudio.play();
   } catch (err) {
     console.warn('Radio playback failed:', err);
   }
+}
+
+function selectJukeboxRow(row) {
+  if (!row) return;
+
+  activeRow = row;
+  const rowType = row.dataset.type || (row.classList.contains('jukebox-mp3') ? 'mp3' : 'radio');
+  const stream = row.dataset.stream;
+  const name = row.dataset.name;
+  const href = row.dataset.href || '';
+
+  let source = { type: rowType, stream, name, href };
+
+  if (rowType === 'radio') {
+    const station = stations.find(s => s.url === stream || s.name === name);
+    if (station) {
+      source = { ...station, type: 'radio', stream: station.url };
+    }
+  }
+
+  applySelection(source, row);
+  startPlayback();
 }
 
 if (playBtn) {
@@ -42,13 +94,30 @@ if (pauseBtn) {
 
 if (nextBtn) {
   nextBtn.addEventListener('click', () => {
-    currentStation = (currentStation + 1) % stations.length;
-    loadStation(currentStation);
-    startPlayback();
+    const rows = Array.from(document.querySelectorAll('.jukebox-station, .jukebox-mp3'));
+    const currentIndex = rows.findIndex(row => row.classList.contains('active'));
+    const nextRow = rows[(currentIndex + 1 + rows.length) % rows.length] || rows[0];
+    if (nextRow) {
+      selectJukeboxRow(nextRow);
+    }
   });
 }
 
-loadStation(currentStation);
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.jukebox-station, .jukebox-mp3').forEach(row => {
+    row.style.cursor = 'pointer';
+    row.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') return;
+      selectJukeboxRow(row);
+    });
+  });
+
+  const defaultRow = document.querySelector('.jukebox-station');
+  if (defaultRow) {
+    currentSelection = getDefaultSelection();
+    applySelection(currentSelection, defaultRow);
+  }
+});
 
 
 

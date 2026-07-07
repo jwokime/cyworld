@@ -218,7 +218,7 @@ a:visited {
     border: 1px solid;
     /* position: absolute; */
     /* bottom: 20px; */
-    background: #fff;
+    background: #E0E0E0;
 }
 
 .radio-controls {
@@ -543,6 +543,26 @@ a:visited {
   padding: 10px 10px 0 0;
 }
 
+.jukebox-station,
+.jukebox-mp3 {
+  cursor: pointer;
+}
+
+.jukebox-station:hover, 
+.jukebox-mp3:hover {
+    background-color: #F0F0F0;
+}
+
+.jukebox-station.active,
+.jukebox-mp3.active {
+  background-color: #F0F0F0;
+}
+
+#jukebox-mp3 th {
+    text-align: left;
+    font-weight: normal;
+    text-decoration: underline;
+}
 
 .scrap-item {
   padding: 10px 0;
