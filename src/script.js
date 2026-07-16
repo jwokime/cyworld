@@ -135,6 +135,19 @@ const tabContents = document.querySelectorAll('.tab-content');
 const profile = document.querySelector('.profile');
 const folders = document.querySelector('.scrapbook-folders');
 
+function showAllScrapbookItems() {
+  const folderLinks = document.querySelectorAll('.folder-list .folder');
+  const scrapItems = document.querySelectorAll('.scrap-item');
+
+  folderLinks.forEach(link => link.classList.remove('active'));
+  const allFolder = document.querySelector('.folder-list .folder[href="#all"]');
+  allFolder?.classList.add('active');
+
+  scrapItems.forEach(item => {
+    item.style.display = 'block';
+  });
+}
+
 function updateSidebarForTab(target) {
   if (!profile || !folders) return;
   if (target === '#scrapbook') {
@@ -166,6 +179,11 @@ function switchTab(targetHash) {
   document.querySelector(target)?.classList.add('active');
 
   updateSidebarForTab(target);
+
+  // Avoid stale folder filters hiding scrapbook posts when returning to this tab.
+  if (target === '#scrapbook') {
+    showAllScrapbookItems();
+  }
 }
 
 // 1. Click tabs → instant switch
@@ -303,6 +321,8 @@ document.querySelectorAll('.recent-link').forEach(link => {
 
     switchTab('#scrapbook');
     window.location.hash = '#scrapbook';
+
+    showAllScrapbookItems();
 
     document.querySelector('.profile').style.display = 'none';
     document.querySelector('.scrapbook-folders').style.display = 'block';

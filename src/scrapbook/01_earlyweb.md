@@ -1,6 +1,6 @@
 ---
 title: cyworld asset archive
-tags: [website, useful]
+tags: [useful]
 date: 2026-06-09
 ---
 ![divider](../assets/dividers/pinkscribbles.gif)
